@@ -1,0 +1,151 @@
+m49,VariableGroup,Subgroup,Variable,Area,Year,Value,Unit,Symbol,IsAggregate
+156,Water resources,Total renewable water resources,Overlap: between surface water and groundwater,China,2020,727.9,10^9 m3/year,I,false
+156,Water use,Pressure on water resources,Agricultural water withdrawal as % of total renewable water resources,China,2020,12.71873306,%,E,false
+156,Water use,Pressure on water resources,SDG 6.4.1. Industrial Water Use Efficiency,China,2020,53.37222669,US$/m3,E,false
+156,Water use,Pressure on water resources,SDG 6.4.1. Irrigated Agriculture Water Use Efficiency,China,2020,2.204020465,US$/m3,E,false
+156,Water use,Pressure on water resources,SDG 6.4.1. Services Water Use Efficiency,China,2020,74.40923516,US$/m3,E,false
+156,Water use,Pressure on water resources,SDG 6.4.1. Water Use Efficiency,China,2020,25.80859674,US$/m3,E,false
+156,Water use,Pressure on water resources,SDG 6.4.2. Agricultural Sector Contribution to Water Stress,China,2020,25.80149898,%,E,false
+156,Water use,Pressure on water resources,SDG 6.4.2. Industrial Sector Contribution to Water Stress,China,2020,7.359612598,%,E,false
+156,Water use,Pressure on water resources,SDG 6.4.2. Municipal Sector Contribution to Water Stress,China,2020,8.357417218,%,E,false
+156,Water use,Pressure on water resources,SDG 6.4.2. Water Stress,China,2020,41.5185288,%,E,false
+250,Water resources,Total renewable water resources,Overlap: between surface water and groundwater,France,2020,118,10^9 m3/year,I,false
+250,Water use,Pressure on water resources,Agricultural water withdrawal as % of total renewable water resources,France,2020,1.630474938,%,E,false
+250,Water use,Pressure on water resources,SDG 6.4.1. Industrial Water Use Efficiency,France,2020,21.87012191,US$/m3,E,false
+250,Water use,Pressure on water resources,SDG 6.4.1. Irrigated Agriculture Water Use Efficiency,France,2020,1.701025722,US$/m3,E,false
+250,Water use,Pressure on water resources,SDG 6.4.1. Services Water Use Efficiency,France,2020,330.7555028,US$/m3,E,false
+250,Water use,Pressure on water resources,SDG 6.4.1. Water Use Efficiency,France,2020,86.14222206,US$/m3,I,false
+250,Water use,Pressure on water resources,SDG 6.4.2. Agricultural Sector Contribution to Water Stress,France,2020,3.011732575,%,E,false
+250,Water use,Pressure on water resources,SDG 6.4.2. Industrial Sector Contribution to Water Stress,France,2020,13.89566274,%,E,false
+250,Water use,Pressure on water resources,SDG 6.4.2. Municipal Sector Contribution to Water Stress,France,2020,4.690741754,%,E,false
+250,Water use,Pressure on water resources,SDG 6.4.2. Water Stress,France,2020,21.59813707,%,E,false
+643,Water resources,Total renewable water resources,Overlap: between surface water and groundwater,Russian Federation,2020,512,10^9 m3/year,I,false
+643,Water use,Pressure on water resources,Agricultural water withdrawal as % of total renewable water resources,Russian Federation,2020,0.411893195,%,I,false
+643,Water use,Pressure on water resources,SDG 6.4.1. Industrial Water Use Efficiency,Russian Federation,2020,13.22848131,US$/m3,E,false
+643,Water use,Pressure on water resources,SDG 6.4.1. Irrigated Agriculture Water Use Efficiency,Russian Federation,2020,0.06017021,US$/m3,E,false
+643,Water use,Pressure on water resources,SDG 6.4.1. Services Water Use Efficiency,Russian Federation,2020,49.06237379,US$/m3,E,false
+643,Water use,Pressure on water resources,SDG 6.4.1. Water Use Efficiency,Russian Federation,2020,18.92261795,US$/m3,I,false
+643,Water use,Pressure on water resources,SDG 6.4.2. Agricultural Sector Contribution to Water Stress,Russian Federation,2020,1.18541507,%,I,false
+643,Water use,Pressure on water resources,SDG 6.4.2. Industrial Sector Contribution to Water Stress,Russian Federation,2020,1.8461695,%,I,false
+643,Water use,Pressure on water resources,SDG 6.4.2. Municipal Sector Contribution to Water Stress,Russian Federation,2020,1.090658179,%,I,false
+643,Water use,Pressure on water resources,SDG 6.4.2. Water Stress,Russian Federation,2020,4.122242749,%,E,false
+826,Water resources,Total renewable water resources,Overlap: between surface water and groundwater,United Kingdom of Great Britain and Northern Ireland,2020,9,10^9 m3/year,I,false
+826,Water use,Pressure on water resources,Agricultural water withdrawal as % of total renewable water resources,United Kingdom of Great Britain and Northern Ireland,2020,0.804761905,%,I,false
+826,Water use,Pressure on water resources,SDG 6.4.1. Industrial Water Use Efficiency,United Kingdom of Great Britain and Northern Ireland,2020,413.4102039,US$/m3,E,false
+826,Water use,Pressure on water resources,SDG 6.4.1. Irrigated Agriculture Water Use Efficiency,United Kingdom of Great Britain and Northern Ireland,2020,0.773890938,US$/m3,E,false
+826,Water use,Pressure on water resources,SDG 6.4.1. Services Water Use Efficiency,United Kingdom of Great Britain and Northern Ireland,2020,340.3235456,US$/m3,E,false
+826,Water use,Pressure on water resources,SDG 6.4.1. Water Use Efficiency,United Kingdom of Great Britain and Northern Ireland,2020,301.3841494,US$/m3,I,false
+826,Water use,Pressure on water resources,SDG 6.4.2. Agricultural Sector Contribution to Water Stress,United Kingdom of Great Britain and Northern Ireland,2020,2.016810744,%,I,false
+826,Water use,Pressure on water resources,SDG 6.4.2. Industrial Sector Contribution to Water Stress,United Kingdom of Great Britain and Northern Ireland,2020,1.721875614,%,I,false
+826,Water use,Pressure on water resources,SDG 6.4.2. Municipal Sector Contribution to Water Stress,United Kingdom of Great Britain and Northern Ireland,2020,10.61595985,%,I,false
+826,Water use,Pressure on water resources,SDG 6.4.2. Water Stress,United Kingdom of Great Britain and Northern Ireland,2020,14.35464621,%,E,false
+840,Water resources,Total renewable water resources,Overlap: between surface water and groundwater,United States of America,2020,1227,10^9 m3/year,I,false
+840,Water use,Pressure on water resources,Agricultural water withdrawal as % of total renewable water resources,United States of America,2020,5.741283806,%,I,false
+840,Water use,Pressure on water resources,SDG 6.4.1. Industrial Water Use Efficiency,United States of America,2020,14.53231823,US$/m3,E,false
+840,Water use,Pressure on water resources,SDG 6.4.1. Irrigated Agriculture Water Use Efficiency,United States of America,2020,0.16438714,US$/m3,E,false
+840,Water use,Pressure on water resources,SDG 6.4.1. Services Water Use Efficiency,United States of America,2020,283.0961387,US$/m3,E,false
+840,Water use,Pressure on water resources,SDG 6.4.1. Water Use Efficiency,United States of America,2020,44.12968035,US$/m3,I,false
+840,Water use,Pressure on water resources,SDG 6.4.2. Agricultural Sector Contribution to Water Stress,United States of America,2020,11.16603295,%,I,false
+840,Water use,Pressure on water resources,SDG 6.4.2. Industrial Sector Contribution to Water Stress,United States of America,2020,13.28897338,%,I,false
+840,Water use,Pressure on water resources,SDG 6.4.2. Municipal Sector Contribution to Water Stress,United States of America,2020,3.700253485,%,I,false
+840,Water use,Pressure on water resources,SDG 6.4.2. Water Stress,United States of America,2020,28.15525982,%,E,false
+156,Water resources,Total renewable water resources,Overlap: between surface water and groundwater,China,2021,727.9,10^9 m3/year,I,false
+156,Water use,Pressure on water resources,Agricultural water withdrawal as % of total renewable water resources,China,2021,12.71873306,%,E,false
+156,Water use,Pressure on water resources,SDG 6.4.1. Industrial Water Use Efficiency,China,2021,67.14899648,US$/m3,E,false
+156,Water use,Pressure on water resources,SDG 6.4.1. Irrigated Agriculture Water Use Efficiency,China,2021,2.521548837,US$/m3,E,false
+156,Water use,Pressure on water resources,SDG 6.4.1. Services Water Use Efficiency,China,2021,88.87769755,US$/m3,E,false
+156,Water use,Pressure on water resources,SDG 6.4.1. Water Use Efficiency,China,2021,31.36041613,US$/m3,E,false
+156,Water use,Pressure on water resources,SDG 6.4.2. Agricultural Sector Contribution to Water Stress,China,2021,25.80149898,%,E,false
+156,Water use,Pressure on water resources,SDG 6.4.2. Industrial Sector Contribution to Water Stress,China,2021,7.359612598,%,E,false
+156,Water use,Pressure on water resources,SDG 6.4.2. Municipal Sector Contribution to Water Stress,China,2021,8.357417218,%,E,false
+156,Water use,Pressure on water resources,SDG 6.4.2. Water Stress,China,2021,41.5185288,%,E,false
+250,Water resources,Total renewable water resources,Overlap: between surface water and groundwater,France,2021,118,10^9 m3/year,I,false
+250,Water use,Pressure on water resources,Agricultural water withdrawal as % of total renewable water resources,France,2021,1.192020651,%,E,false
+250,Water use,Pressure on water resources,SDG 6.4.1. Industrial Water Use Efficiency,France,2021,21.7440956,US$/m3,E,false
+250,Water use,Pressure on water resources,SDG 6.4.1. Irrigated Agriculture Water Use Efficiency,France,2021,2.535598769,US$/m3,E,false
+250,Water use,Pressure on water resources,SDG 6.4.1. Services Water Use Efficiency,France,2021,356.4432826,US$/m3,E,false
+250,Water use,Pressure on water resources,SDG 6.4.1. Water Use Efficiency,France,2021,91.98905121,US$/m3,I,false
+250,Water use,Pressure on water resources,SDG 6.4.2. Agricultural Sector Contribution to Water Stress,France,2021,2.201841524,%,E,false
+250,Water use,Pressure on water resources,SDG 6.4.2. Industrial Sector Contribution to Water Stress,France,2021,14.56832491,%,E,false
+250,Water use,Pressure on water resources,SDG 6.4.2. Municipal Sector Contribution to Water Stress,France,2021,4.61446072,%,E,false
+250,Water use,Pressure on water resources,SDG 6.4.2. Water Stress,France,2021,21.38462716,%,E,false
+643,Water resources,Total renewable water resources,Overlap: between surface water and groundwater,Russian Federation,2021,512,10^9 m3/year,I,false
+643,Water use,Pressure on water resources,Agricultural water withdrawal as % of total renewable water resources,Russian Federation,2021,0.411893195,%,I,false
+643,Water use,Pressure on water resources,SDG 6.4.1. Industrial Water Use Efficiency,Russian Federation,2021,14.79399838,US$/m3,E,false
+643,Water use,Pressure on water resources,SDG 6.4.1. Irrigated Agriculture Water Use Efficiency,Russian Federation,2021,0.061385579,US$/m3,E,false
+643,Water use,Pressure on water resources,SDG 6.4.1. Services Water Use Efficiency,Russian Federation,2021,50.08393855,US$/m3,E,false
+643,Water use,Pressure on water resources,SDG 6.4.1. Water Use Efficiency,Russian Federation,2021,19.89437745,US$/m3,I,false
+643,Water use,Pressure on water resources,SDG 6.4.2. Agricultural Sector Contribution to Water Stress,Russian Federation,2021,1.18541507,%,I,false
+643,Water use,Pressure on water resources,SDG 6.4.2. Industrial Sector Contribution to Water Stress,Russian Federation,2021,1.8461695,%,I,false
+643,Water use,Pressure on water resources,SDG 6.4.2. Municipal Sector Contribution to Water Stress,Russian Federation,2021,1.090658179,%,I,false
+643,Water use,Pressure on water resources,SDG 6.4.2. Water Stress,Russian Federation,2021,4.122242749,%,E,false
+826,Water resources,Total renewable water resources,Overlap: between surface water and groundwater,United Kingdom of Great Britain and Northern Ireland,2021,9,10^9 m3/year,I,false
+826,Water use,Pressure on water resources,Agricultural water withdrawal as % of total renewable water resources,United Kingdom of Great Britain and Northern Ireland,2021,0.804761905,%,I,false
+826,Water use,Pressure on water resources,SDG 6.4.1. Industrial Water Use Efficiency,United Kingdom of Great Britain and Northern Ireland,2021,443.0130114,US$/m3,E,false
+826,Water use,Pressure on water resources,SDG 6.4.1. Irrigated Agriculture Water Use Efficiency,United Kingdom of Great Britain and Northern Ireland,2021,0.904072941,US$/m3,E,false
+826,Water use,Pressure on water resources,SDG 6.4.1. Services Water Use Efficiency,United Kingdom of Great Britain and Northern Ireland,2021,367.9244481,US$/m3,E,false
+826,Water use,Pressure on water resources,SDG 6.4.1. Water Use Efficiency,United Kingdom of Great Britain and Northern Ireland,2021,325.3655818,US$/m3,I,false
+826,Water use,Pressure on water resources,SDG 6.4.2. Agricultural Sector Contribution to Water Stress,United Kingdom of Great Britain and Northern Ireland,2021,2.016810744,%,I,false
+826,Water use,Pressure on water resources,SDG 6.4.2. Industrial Sector Contribution to Water Stress,United Kingdom of Great Britain and Northern Ireland,2021,1.721875614,%,I,false
+826,Water use,Pressure on water resources,SDG 6.4.2. Municipal Sector Contribution to Water Stress,United Kingdom of Great Britain and Northern Ireland,2021,10.61595985,%,I,false
+826,Water use,Pressure on water resources,SDG 6.4.2. Water Stress,United Kingdom of Great Britain and Northern Ireland,2021,14.35464621,%,E,false
+840,Water resources,Total renewable water resources,Overlap: between surface water and groundwater,United States of America,2021,1227,10^9 m3/year,I,false
+840,Water use,Pressure on water resources,Agricultural water withdrawal as % of total renewable water resources,United States of America,2021,5.741283806,%,I,false
+840,Water use,Pressure on water resources,SDG 6.4.1. Industrial Water Use Efficiency,United States of America,2021,15.62167935,US$/m3,E,false
+840,Water use,Pressure on water resources,SDG 6.4.1. Irrigated Agriculture Water Use Efficiency,United States of America,2021,0.222136316,US$/m3,E,false
+840,Water use,Pressure on water resources,SDG 6.4.1. Services Water Use Efficiency,United States of America,2021,297.906508,US$/m3,E,false
+840,Water use,Pressure on water resources,SDG 6.4.1. Water Use Efficiency,United States of America,2021,46.61317514,US$/m3,I,false
+840,Water use,Pressure on water resources,SDG 6.4.2. Agricultural Sector Contribution to Water Stress,United States of America,2021,11.16603295,%,I,false
+840,Water use,Pressure on water resources,SDG 6.4.2. Industrial Sector Contribution to Water Stress,United States of America,2021,13.28897338,%,I,false
+840,Water use,Pressure on water resources,SDG 6.4.2. Municipal Sector Contribution to Water Stress,United States of America,2021,3.700253485,%,I,false
+840,Water use,Pressure on water resources,SDG 6.4.2. Water Stress,United States of America,2021,28.15525982,%,E,false
+156,Water resources,Total renewable water resources,Overlap: between surface water and groundwater,China,2022,727.9,10^9 m3/year,I,false
+156,Water use,Pressure on water resources,Agricultural water withdrawal as % of total renewable water resources,China,2022,12.71873306,%,E,false
+156,Water use,Pressure on water resources,SDG 6.4.1. Industrial Water Use Efficiency,China,2022,68.78179883,US$/m3,E,false
+156,Water use,Pressure on water resources,SDG 6.4.1. Irrigated Agriculture Water Use Efficiency,China,2022,2.558905116,US$/m3,E,false
+156,Water use,Pressure on water resources,SDG 6.4.1. Services Water Use Efficiency,China,2022,88.51823264,US$/m3,E,false
+156,Water use,Pressure on water resources,SDG 6.4.1. Water Use Efficiency,China,2022,31.60070505,US$/m3,E,false
+156,Water use,Pressure on water resources,SDG 6.4.2. Agricultural Sector Contribution to Water Stress,China,2022,25.80149898,%,E,false
+156,Water use,Pressure on water resources,SDG 6.4.2. Industrial Sector Contribution to Water Stress,China,2022,7.359612598,%,E,false
+156,Water use,Pressure on water resources,SDG 6.4.2. Municipal Sector Contribution to Water Stress,China,2022,8.357417218,%,E,false
+156,Water use,Pressure on water resources,SDG 6.4.2. Water Stress,China,2022,41.5185288,%,E,false
+250,Water resources,Total renewable water resources,Overlap: between surface water and groundwater,France,2022,118,10^9 m3/year,I,false
+250,Water use,Pressure on water resources,Agricultural water withdrawal as % of total renewable water resources,France,2022,1.192020651,%,E,false
+250,Water use,Pressure on water resources,SDG 6.4.1. Industrial Water Use Efficiency,France,2022,23.18412887,US$/m3,E,false
+250,Water use,Pressure on water resources,SDG 6.4.1. Irrigated Agriculture Water Use Efficiency,France,2022,3.073997813,US$/m3,E,false
+250,Water use,Pressure on water resources,SDG 6.4.1. Services Water Use Efficiency,France,2022,364.1705174,US$/m3,E,false
+250,Water use,Pressure on water resources,SDG 6.4.1. Water Use Efficiency,France,2022,94.69292642,US$/m3,I,false
+250,Water use,Pressure on water resources,SDG 6.4.2. Agricultural Sector Contribution to Water Stress,France,2022,2.201841524,%,E,false
+250,Water use,Pressure on water resources,SDG 6.4.2. Industrial Sector Contribution to Water Stress,France,2022,14.56832491,%,E,false
+250,Water use,Pressure on water resources,SDG 6.4.2. Municipal Sector Contribution to Water Stress,France,2022,4.61446072,%,E,false
+250,Water use,Pressure on water resources,SDG 6.4.2. Water Stress,France,2022,21.38462716,%,E,false
+643,Water resources,Total renewable water resources,Overlap: between surface water and groundwater,Russian Federation,2022,512,10^9 m3/year,I,false
+643,Water use,Pressure on water resources,Agricultural water withdrawal as % of total renewable water resources,Russian Federation,2022,0.411893195,%,I,false
+643,Water use,Pressure on water resources,SDG 6.4.1. Industrial Water Use Efficiency,Russian Federation,2022,14.91015634,US$/m3,E,false
+643,Water use,Pressure on water resources,SDG 6.4.1. Irrigated Agriculture Water Use Efficiency,Russian Federation,2022,0.060603093,US$/m3,E,false
+643,Water use,Pressure on water resources,SDG 6.4.1. Services Water Use Efficiency,Russian Federation,2022,49.02184627,US$/m3,E,false
+643,Water use,Pressure on water resources,SDG 6.4.1. Water Use Efficiency,Russian Federation,2022,19.66516729,US$/m3,I,false
+643,Water use,Pressure on water resources,SDG 6.4.2. Agricultural Sector Contribution to Water Stress,Russian Federation,2022,1.18541507,%,I,false
+643,Water use,Pressure on water resources,SDG 6.4.2. Industrial Sector Contribution to Water Stress,Russian Federation,2022,1.8461695,%,I,false
+643,Water use,Pressure on water resources,SDG 6.4.2. Municipal Sector Contribution to Water Stress,Russian Federation,2022,1.090658179,%,I,false
+643,Water use,Pressure on water resources,SDG 6.4.2. Water Stress,Russian Federation,2022,4.122242749,%,E,false
+826,Water resources,Total renewable water resources,Overlap: between surface water and groundwater,United Kingdom of Great Britain and Northern Ireland,2022,9,10^9 m3/year,I,false
+826,Water use,Pressure on water resources,Agricultural water withdrawal as % of total renewable water resources,United Kingdom of Great Britain and Northern Ireland,2022,0.804761905,%,I,false
+826,Water use,Pressure on water resources,SDG 6.4.1. Industrial Water Use Efficiency,United Kingdom of Great Britain and Northern Ireland,2022,463.9431302,US$/m3,E,false
+826,Water use,Pressure on water resources,SDG 6.4.1. Irrigated Agriculture Water Use Efficiency,United Kingdom of Great Britain and Northern Ireland,2022,1.016053049,US$/m3,E,false
+826,Water use,Pressure on water resources,SDG 6.4.1. Services Water Use Efficiency,United Kingdom of Great Britain and Northern Ireland,2022,382.0904622,US$/m3,E,false
+826,Water use,Pressure on water resources,SDG 6.4.1. Water Use Efficiency,United Kingdom of Great Britain and Northern Ireland,2022,338.368392,US$/m3,I,false
+826,Water use,Pressure on water resources,SDG 6.4.2. Agricultural Sector Contribution to Water Stress,United Kingdom of Great Britain and Northern Ireland,2022,2.016810744,%,I,false
+826,Water use,Pressure on water resources,SDG 6.4.2. Industrial Sector Contribution to Water Stress,United Kingdom of Great Britain and Northern Ireland,2022,1.721875614,%,I,false
+826,Water use,Pressure on water resources,SDG 6.4.2. Municipal Sector Contribution to Water Stress,United Kingdom of Great Britain and Northern Ireland,2022,10.61595985,%,I,false
+826,Water use,Pressure on water resources,SDG 6.4.2. Water Stress,United Kingdom of Great Britain and Northern Ireland,2022,14.35464621,%,E,false
+840,Water resources,Total renewable water resources,Overlap: between surface water and groundwater,United States of America,2022,1227,10^9 m3/year,I,false
+840,Water use,Pressure on water resources,Agricultural water withdrawal as % of total renewable water resources,United States of America,2022,5.741283806,%,I,false
+840,Water use,Pressure on water resources,SDG 6.4.1. Industrial Water Use Efficiency,United States of America,2022,16.52157715,US$/m3,E,false
+840,Water use,Pressure on water resources,SDG 6.4.1. Irrigated Agriculture Water Use Efficiency,United States of America,2022,0.248753854,US$/m3,E,false
+840,Water use,Pressure on water resources,SDG 6.4.1. Services Water Use Efficiency,United States of America,2022,300.9135684,US$/m3,E,false
+840,Water use,Pressure on water resources,SDG 6.4.1. Water Use Efficiency,United States of America,2022,47.44367062,US$/m3,I,false
+840,Water use,Pressure on water resources,SDG 6.4.2. Agricultural Sector Contribution to Water Stress,United States of America,2022,11.16603295,%,I,false
+840,Water use,Pressure on water resources,SDG 6.4.2. Industrial Sector Contribution to Water Stress,United States of America,2022,13.28897338,%,I,false
+840,Water use,Pressure on water resources,SDG 6.4.2. Municipal Sector Contribution to Water Stress,United States of America,2022,3.700253485,%,I,false
+840,Water use,Pressure on water resources,SDG 6.4.2. Water Stress,United States of America,2022,28.15525982,%,E,false
