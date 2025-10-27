@@ -3,14 +3,14 @@
     "description": "Dynamic Server",
     "version": "1.0.0",
     "author": {
-        "name": "",
-        "email": ""
+        "name": "Jesse Berndt-Alonso",
+        "email": "bern1203@stthomas.edu"
     },
-    "contributors": [
-    ],
-    "repository": {},
+    "contributors": ["Sam Dewey, Alejandro Koenen" ],
+    "repository": {"type": "git", "url": "https://github.com/JesseBA04/webdev-dynamic"},
     "dependencies": {
         "express": "^5.1.0",
         "sqlite3": "^5.1.7"
+        
     }
 }
