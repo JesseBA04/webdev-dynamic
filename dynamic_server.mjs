@@ -64,8 +64,10 @@ app.get('/country/:country_id', (req, res) => {
                 //look at how indented we are
                 let country_data = '';
                 for (let i=0; i < rows.length; i++){
-                    country_data += '<tr><td>' + rows[i].name + '</td>';
-                    country_data += '<td>' + rows[i].calories + '</td></tr>';
+                    country_data += '<tr><td>' + rows[i].variable + '</td>';
+                    country_data += '<td>' + rows[i].value + '</td>';
+                    country_data += '<td>' + rows[i].unit + '</td>';
+                    country_data += '<td>' + rows[i].year + '</td></tr>';
                 }
                 let response = data.replace('$$$COUNTRY_ROWS$$$', country_data);
                 res.status(200).type('html').send(response);
