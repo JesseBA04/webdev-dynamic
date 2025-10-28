@@ -23,20 +23,26 @@ const db = new sqlite3.Database('./AquaStat.sqlite3', sqlite3.OPEN_READONLY, (er
     }
 });
 
-app.get('/', (req, res) => {
+app.get('/countryHome', (req, res) => {
     let sql = 'SELECT * FROM Data'; 
+    let country_already_displayed = [];
     db.all(sql, [], (err, rows) => { //the question mark in sql gets replaced with G, sql recognizes it as a placeholder
         if (err){
             res.status(500).type('txt').send('SQL Error');
         }
         else{
             //res.status(200).type('json').send(JSON.stringify(rows));
-            fs.readFile(path.join(template, 'index.html'), {encoding: 'utf8'}, (err, data) => {
+            fs.readFile(path.join(template, 'countryHome.html'), {encoding: 'utf8'}, (err, data) => {
                 //look at how indented we are
                 let country_list = '';
                 for (let i=0; i < rows.length; i++){
-                    country_list += '<li><a href="/country/' + rows[i].id + '">';
-                    country_list += rows[i].name + '</a></li>';
+                    if(country_already_displayed.includes(rows[i].area)){
+
+                    }else{
+                        country_already_displayed.push(rows[i].area)
+                        country_list += '<li><a href="/country/' + rows[i].id + '">'; //this will bring us to the url, /country/China (China is an example)
+                        country_list += rows[i].area + '</a></li>';
+                    }
                 }
                 let response = data.replace('$$$COUNTRY_LIST$$$', country_list);
                 res.status(200).type('html').send(response);
@@ -44,6 +50,29 @@ app.get('/', (req, res) => {
         }
     })
 });
+
+// This will be used to display each countries data, ex. /country/China
+app.get('/country/:country_id', (req, res) => {
+    let sql = 'SELECT * FROM Data WHERE area == ?';
+    db.all(sql, [req.params.country_id], (err, rows) => { //the question mark in sql gets replaced with G, sql recognizes it as a placeholder
+        if (err){
+            res.status(500).type('txt').send('SQL Error');
+        }
+        else{
+            //res.status(200).type('json').send(JSON.stringify(rows));
+            fs.readFile(path.join(template, 'country.html'), {encoding: 'utf8'}, (err, data) => {
+                //look at how indented we are
+                let country_data = '';
+                for (let i=0; i < rows.length; i++){
+                    country_data += '<tr><td>' + rows[i].name + '</td>';
+                    country_data += '<td>' + rows[i].calories + '</td></tr>';
+                }
+                let response = data.replace('$$$COUNTRY_ROWS$$$', country_data);
+                res.status(200).type('html').send(response);
+            })
+        }
+    })
+}); 
 
 app.listen(port, () => {
     console.log('Now listening on port ' + port);
