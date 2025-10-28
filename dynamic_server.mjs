@@ -53,7 +53,11 @@ app.get('/display.html', (req, res) => {
             let list = ['countries', 'variables', 'years']
                 .map(t => `<li><a href="/display.html?type=${t}">${t}</a></li>`)
                 .join('\n');
-            let response = data.replace('$$$TITLE$$$', 'Display').replace('$$$LIST$$$', list);
+            let response = data
+                .replace('$$$TITLE$$$', 'Display')
+                .replace('$$$TITLE2$$$', 'Display')
+                .replace('$$$LIST$$$', list)
+                .replace('$$$EXTRA$$$', '');
             res.status(200).type('html').send(response);
         });
         return;
@@ -83,23 +87,54 @@ app.get('/display.html', (req, res) => {
             
                 // Capitalize first letter of type and make rest lowercase
                 const title = type.charAt(0).toUpperCase() + type.slice(1);
-                let response = data.replace('$$$TITLE2$$$', title).replace('$$$LIST$$$', list).replace('$$$TITLE$$$', title);
+                const extra = '';
+
+                            let response = data
+                                    .replace('$$$TITLE2$$$', title)
+                                    .replace('$$$LIST$$$', list)
+                                    .replace('$$$EXTRA$$$', extra)
+                                    .replace('$$$TITLE$$$', title);
             res.status(200).type('html').send(response);
         });
     });
 });
 
-// Route: /variable/:name -> show rows for a given variable (renders variable.html)
+// Route: /variable/:name - show rows for a given variable (renders variable.html)
 app.get('/variable/:name', (req, res) => {
     const name = req.params.name;
-    const sql = 'SELECT area, year, value FROM Data WHERE variable = ? ORDER BY area, year';
-    db.all(sql, [name], (err, rows) => {
-        if (err) return res.status(500).type('txt').send('SQL Error');
-        fs.readFile(path.join(template, 'variable.html'), { encoding: 'utf8' }, (err, data) => {
-            if (err) return res.status(500).type('txt').send('Template read error');
-            const dataRows = rows.map(r => `                <tr><td>${r.area}</td><td>${r.year}</td><td>${r.value}</td></tr>`).join('\n');
-            const out = data.replace(/\$\$\$VARIABLE\$\$\$/g, name).replace('$$$DATA_ROWS$$$', dataRows || '<tr><td colspan="3">No data</td></tr>');
-            res.status(200).type('html').send(out);
+    const rowsSql = 'SELECT area, year, value FROM Data WHERE variable = ? ORDER BY area, year';
+    const listSql = 'SELECT DISTINCT variable as v FROM Data WHERE variable IS NOT NULL ORDER BY variable';
+
+    // First, get the full variable list to compute prev/next
+    db.all(listSql, [], (listErr, vrows) => {
+        if (listErr) return res.status(500).type('txt').send('SQL Error');
+        const list = (vrows || []).map(r => r.v);
+        const len = list.length || 1;
+        let idx = Math.max(0, list.indexOf(name));
+        if (idx === -1) idx = 0; // fallback if not found
+        const prev = list[(idx - 1 + len) % len] || name;
+        const next = list[(idx + 1) % len] || name;
+
+        // Then, get the data rows for the current variable
+        db.all(rowsSql, [name], (err, rows) => {
+            if (err) return res.status(500).type('txt').send('SQL Error');
+            fs.readFile(path.join(template, 'variable.html'), { encoding: 'utf8' }, (tplErr, data) => {
+                if (tplErr) return res.status(500).type('txt').send('Template read error');
+
+                const dataRows = rows.map(r => `                <tr><td>${r.area}</td><td>${r.year}</td><td>${r.value}</td></tr>`).join('\n');
+                const nav = `
+                <div class="var-nav">
+                    <a class="pill" href="/variable/${encodeURIComponent(prev)}">&#9664; Prev</a>
+                    <span class="pill variable-badge">${name}</span>
+                    <a class="pill" href="/variable/${encodeURIComponent(next)}">Next &#9654;</a>
+                </div>`;
+
+                const out = data
+                    .replace(/\$\$\$VARIABLE\$\$\$/g, name)
+                    .replace('$$$VARIABLE_NAV$$$', nav)
+                    .replace('$$$DATA_ROWS$$$', dataRows || '<tr><td colspan="3">No data</td></tr>');
+                res.status(200).type('html').send(out);
+            });
         });
     });
 });

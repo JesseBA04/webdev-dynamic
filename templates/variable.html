@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/style.css"/>
 	<title>$$$VARIABLE$$$</title>
 	<style>
 		body { font-family: Arial, Helvetica, sans-serif; padding: 1rem; }
@@ -15,28 +16,35 @@
 	</style>
 </head>
 <body>
-	<header>
-		<h1>$$$VARIABLE$$$</h1>
-		<nav>
-			<a href="/">Home</a> |
-			<a href="/display.html?type=variables">All variables</a>
-		</nav>
-	</header>
-
-	<p class="muted">Showing data rows for the selected variable.</p>
-
-	<table>
-		<thead>
-			<tr>
-				<th>Area</th>
-				<th>Year</th>
-				<th>$$$VARIABLE$$$</th>
-			</tr>
-		</thead>
-		<tbody>
-			$$$DATA_ROWS$$$
-		</tbody>
-	</table>
-
+	<div class="container">
+		<div class="layout">
+			<aside class="sidebar">
+				<h2>Navigation</h2>
+				<ul class="menu">
+					<li><a href="/">Home</a></li>
+					<li><a href="/display.html?type=countries">Filter by Area</a></li>
+					<li><a href="/display.html?type=variables">Filter by Variable</a></li>
+					<li><a href="/display.html?type=years">Filter by Year</a></li>
+				</ul>
+			</aside>
+			<main class="content">
+				<h1>$$$VARIABLE$$$</h1>
+				$$$VARIABLE_NAV$$$
+				<p class="muted">Showing data rows for the selected variable.</p>
+				<table>
+					<thead>
+						<tr>
+							<th>Area</th>
+							<th>Year</th>
+							<th>$$$VARIABLE$$$</th>
+						</tr>
+					</thead>
+					<tbody>
+						$$$DATA_ROWS$$$
+					</tbody>
+				</table>
+			</main>
+		</div>
+	</div>
 </body>
 </html>
