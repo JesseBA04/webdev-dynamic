@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href = "/style.css"/> 
+        <link rel="stylesheet" href="/css/style.css"/>
         <meta charset="utf-8"/>
         <meta name ="viewport" content = "width=devices-width, initial-scale=1"/>
         <title>United Nations AQUASTAT's</title>
     </head>
     <body>
-        <h1>Security Council Members data</h1>
-        <ul>$$$COUNTRY_LIST$$$</ul>
+        <div class="container">
+            <h1>Security Council Members Data</h1>
+            <div class="card">
+                <p>
+                    This site presents environmental data from the UN AQUASTAT dataset. Use the large buttons below to
+                    browse all Areas (countries/regions), Variables (indicators), or Years. Then click any
+                    item to view the detailed records.
+                </p>
+            </div>
+            <p class="lead">Would you like to filter by:</p>
+            <nav>
+                <ul class="btn-grid">$$$FILTER_LIST$$$</ul>
+            </nav>
+        </div>
     </body>
-</html>
