@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8"><title>$$$COUNTRY$$$ (2020–2022)</title>
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    </head><body>
+    <nav><a href="/">Home</a></nav>
+    <h1>$$$COUNTRY$$$ — 2020 • 2021 • 2022</h1>
+    
+    <div id="totals" style="height:300px;"></div>
+    <script>
+      const series = $$$SERIES_JSON$$$; // [{year,total}, ...]
+      Plotly.newPlot('totals',[{type:'scatter',mode:'lines+markers',x:series.map(r=>r.year),y:series.map(r=>r.total)}],
+                     {margin:{l:50,r:10,t:20,b:40},xaxis:{dtick:1}}, {displayModeBar:false});
+    </script>
+    
+    <table border="1" cellpadding="6">
+      <thead><tr><th>Year</th><th>Variable</th><th>Value</th></tr></thead>
+      <tbody>
+        $$$COUNTRY_YEAR_ROWS$$$
+      </tbody>
+    </table>
+    </body></html>
+    

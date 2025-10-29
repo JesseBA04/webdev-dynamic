@@ -55,25 +55,50 @@ app.get('/countryHome', (req, res) => {
 // This will be used to display each countries data, ex. /country/China
 app.get('/country/:country_id', (req, res) => {
     let sql = 'SELECT * FROM Data WHERE area == ?';
-    db.all(sql, [req.params.country_id], (err, rows) => { //the question mark in sql gets replaced with G, sql recognizes it as a placeholder
-        if (err){
-            res.status(500).type('txt').send('SQL Error');
-        }
-        else{
-            //res.status(200).type('json').send(JSON.stringify(rows));
-            fs.readFile(path.join(template, 'country.html'), {encoding: 'utf8'}, (err, data) => {
-                //look at how indented we are
-                let country_data = '';
-                for (let i=0; i < rows.length; i++){
-                    country_data += '<tr><td>' + rows[i].variable + '</td>';
-                    country_data += '<td>' + rows[i].value + '</td>';
-                    country_data += '<td>' + rows[i].unit + '</td>';
-                    country_data += '<td>' + rows[i].year + '</td></tr>';
-                }
-                let response = data.replace('$$$COUNTRY_ROWS$$$', country_data);
-                res.status(200).type('html').send(response);
-            })
-        }
+    
+    const name = req.params.country_id;
+    const listSql = 'SELECT DISTINCT area as v FROM Data WHERE area IS NOT NULL ORDER BY area';
+
+    // First, get the full variable list to compute prev/next
+    db.all(listSql, [], (listErr, vrows) => {
+        if (listErr) return res.status(500).type('txt').send('SQL Error');
+        const list = (vrows || []).map(r => r.v);
+        const len = list.length || 1;
+        let idx = Math.max(0, list.indexOf(name));
+        if (idx === -1) idx = 0; // fallback if not found
+        const prev = list[(idx - 1 + len) % len] || name;
+        const next = list[(idx + 1) % len] || name;
+
+        db.all(sql, [req.params.country_id], (err, rows) => { //the question mark in sql gets replaced with G, sql recognizes it as a placeholder
+            if (err){
+                res.status(500).type('txt').send('SQL Error');
+            }
+            else{
+                //res.status(200).type('json').send(JSON.stringify(rows));
+                fs.readFile(path.join(template, 'country.html'), {encoding: 'utf8'}, (err, data) => {
+                    //look at how indented we are
+                    let country_data = '';
+                    for (let i=0; i < rows.length; i++){
+                        country_data += '<tr><td>' + rows[i].variable + '</td>';
+                        country_data += '<td>' + rows[i].value + '</td>';
+                        country_data += '<td>' + rows[i].unit + '</td>';
+                        country_data += '<td>' + rows[i].year + '</td></tr>';
+                    }
+                    //this will be used for the buttons on the top of the page
+                    const nav = `
+                    <div class="var-nav">
+                        <a class="pill" href="/country/${encodeURIComponent(prev)}">&#9664; Prev</a>
+                        <span class="pill variable-badge">${name}</span>
+                        <a class="pill" href="/country/${encodeURIComponent(next)}">Next &#9654;</a>
+                    </div>`;
+                    let response = data.replace('$$$COUNTRY_ROWS$$$', country_data)
+                        .replace(/\$\$\$COUNTRY_NAME\$\$\$/g, name)
+                        .replace('$$$COUNTRY_NAV$$$', nav);
+                    
+                    res.status(200).type('html').send(response);
+                })
+            }
+        })
     })
 }); 
 
@@ -193,6 +218,69 @@ app.get('/variable/:name', (req, res) => {
         });
     });
 });
+
+
+
+//years 2020/2021/2022 + country across those years
+
+app.get('/yearsHome', (req, res) => {
+    fs.readFile(path.join(template, 'yearsHome.html'), {encoding: 'utf8'}, (err, data) => {
+        if (err) { res.status(500).type('txt').send('Template read error'); return; }
+        const list = [2020,2021,2022].map(y => `<li><a href="/year/${y}">${y}</a></li>`).join('\n');
+        res.status(200).type('html').send(data.replace('$$$YEAR_LIST$$$', list));
+    });
+});
+
+app.get('/year/:year', (req, res) => {
+    const y = parseInt(req.params.year, 10);
+    if (![2020,2021,2022].includes(y)) { res.status(404).type('txt').send('Error: year must be 2020, 2021, or 2022'); return; }
+    const sql = 'SELECT area, variable, value, unit FROM Data WHERE year = ? ORDER BY area, variable';
+    db.all(sql, [y], (err, rows) => {
+        if (err){ res.status(500).type('txt').send('SQL Error'); return; }
+        fs.readFile(path.join(template, 'year.html'), {encoding: 'utf8'}, (tErr, tpl) => {
+            if (tErr){ res.status(500).type('txt').send('Template read error'); return; }
+            const prev = y === 2020 ? 2022 : y - 1;
+            const next = y === 2022 ? 2020 : y + 1;
+            const table = rows.map(r => `<tr><td>${r.area}</td><td>${r.variable}</td><td>${r.value}</td><td>${r.unit}</td></tr>`).join('\n');
+            const rowsJson = JSON.stringify(rows);  // <-- added
+            let out = tpl
+                .replace(/\$\$\$YEAR\$\$\$/g, String(y))
+                .replace('$$$YEAR_ROWS$$$', table || '<tr><td colspan="4">No data</td></tr>')
+                .replace('$$$PREV_LINK$$$', `/year/${prev}`)
+                .replace('$$$NEXT_LINK$$$', `/year/${next}`)
+                .replace('$$$ROWS_JSON$$$', rowsJson); // <-- added
+            res.status(200).type('html').send(out);
+        });
+    });
+});
+
+
+app.get('/countryYears/:country', (req, res) => {
+    const c = req.params.country;
+    const rowsSql = `SELECT year, variable, value FROM Data 
+                     WHERE area = ? AND year IN (2020,2021,2022)
+                     ORDER BY year, variable`;
+    const aggSql = `SELECT year, SUM(value) AS total FROM Data 
+                    WHERE area = ? AND year IN (2020,2021,2022)
+                    GROUP BY year ORDER BY year`;
+    db.all(rowsSql, [c], (err, rows) => {
+        if (err){ res.status(500).type('txt').send('SQL Error'); return; }
+        db.all(aggSql, [c], (e2, agg) => {
+            if (e2){ res.status(500).type('txt').send('SQL Error'); return; }
+            fs.readFile(path.join(template, 'countryYears.html'), {encoding: 'utf8'}, (tErr, tpl) => {
+                if (tErr){ res.status(500).type('txt').send('Template read error'); return; }
+                const table = rows.map(r => `<tr><td>${r.year}</td><td>${r.variable}</td><td>${r.value}</td></tr>`).join('\n');
+                const series = JSON.stringify(agg || []); // [{year,total},...]
+                let out = tpl
+                    .replace(/\$\$\$COUNTRY\$\$\$/g, c)
+                    .replace('$$$COUNTRY_YEAR_ROWS$$$', table || '<tr><td colspan="3">No data</td></tr>')
+                    .replace('$$$SERIES_JSON$$$', series);
+                res.status(200).type('html').send(out);
+            });
+        });
+    });
+});
+
 
 app.listen(port, () => {
     console.log('Now listening on port ' + port);

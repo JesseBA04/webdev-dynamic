@@ -1,27 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta rel = "stylesheet" href = "/style.css">
+	<meta rel = "stylesheet" href = "/css/style.css">
 	<meta charset="utf-8">
     <script src="https://cdn.plot.ly/plotly-3.1.0.min.js" charset="utf-8"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>$$$TEMP$$$</title>
+	<title>$$$COUNTRY_NAME$$$</title>
+    <style>
+		body { font-family: Arial, Helvetica, sans-serif; padding: 1rem; }
+		header { display:flex; justify-content:space-between; align-items:center; }
+		table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+		th, td { border: 1px solid #ddd; padding: 8px; }
+		th { background: #f4f4f4; text-align: left; }
+		tr:nth-child(even) { background: #fafafa; }
+		.muted { color: #666; font-size: 0.9rem; }
+	</style>
 </head>
 <body>
-	<h1>$$$COUNTRY_NAME$$$</h1>
-        <Table>
-            <thead>
-                <tr>
-                    <th>Variable</th>
-                    <th>Amount</th>
-					<th>Unit</th>
-                </tr>
-            </thead>
-            <tbody>
-                $$$COUNTRY_ROWS$$$
-            </tbody>
-        </Table>
-        <div id="tester" style="width:600px;height:250px;"></div>
+    <div class="container">
+		<div class="layout">
+			<aside class="sidebar">
+				<h2>Navigation</h2>
+				<ul class="menu">
+					<li><a href="/">Home</a></li>
+					<li><a href="/display.html?type=countries">Filter by Area</a></li>
+					<li><a href="/display.html?type=variables">Filter by Variable</a></li>
+					<li><a href="/display.html?type=years">Filter by Year</a></li>
+				</ul>
+			</aside>
+			<main class="content">
+				<h1>$$$COUNTRY_NAME$$$</h1>
+				$$$COUNTRY_NAV$$$
+				<p class="muted">Showing data rows for the selected country.</p>
+				<table>
+					<thead>
+						<tr>
+							<th>Variable</th>
+							<th>Amount</th>
+							<th>Unit</th>
+                            <th>Year</th>
+						</tr>
+					</thead>
+					<tbody>
+						$$$COUNTRY_ROWS$$$
+					</tbody>
+				</table>
+			</main>
+		</div>
+	</div>
+    <div id="tester" style="width:600px;height:250px;"></div>
         <script>
 	        TESTER = document.getElementById('tester');
 	        Plotly.newPlot( TESTER, [{
@@ -29,6 +56,5 @@
 	        y: [1, 2, 4, 8, 16] }], {
 	        margin: { t: 0 } } );
         </script>
-    </body>
 </body>
 </html>

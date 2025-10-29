@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Year $$$YEAR$$$</title>
+  </head>
+  <body>
+    <nav>
+      <a href="$$$PREV_LINK$$$">Prev</a> |
+      <a href="/">Home</a> |
+      <a href="$$$NEXT_LINK$$$">Next</a>
+    </nav>
+
+    <h1>Year $$$YEAR$$$</h1>
+
+    <table border="1" cellpadding="6">
+      <thead>
+        <tr><th>Country</th><th>Variable</th><th>Value</th><th>Unit</th></tr>
+      </thead>
+      <tbody>
+        $$$YEAR_ROWS$$$
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:24px">Top countries for most-common variable</h2>
+
+    <!-- safely embed rows JSON and render Plotly -->
+    <script id="__rows" type="application/json">$$$ROWS_JSON$$$</script>
+    <div id="chart" style="height:460px;"></div>
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <script>
+      const rows = JSON.parse(document.getElementById('__rows').textContent);
+
+      const counts = {};
+      for (const r of rows) counts[r.variable] = (counts[r.variable] || 0) + 1;
+      const chosen = Object.entries(counts).sort((a,b)=>b[1]-a[1])[0]?.[0];
+
+      const filtered = rows
+        .filter(r => r.variable === chosen && Number.isFinite(Number(r.value)))
+        .sort((a,b) => Number(b.value) - Number(a.value))
+        .slice(0, 20);
+
+      Plotly.newPlot('chart', [{
+        type: 'bar',
+        x: filtered.map(r => r.area),
+        y: filtered.map(r => Number(r.value)),
+        hovertemplate: '%{x}<br>%{y}<extra></extra>',
+        name: chosen
+      }], {
+        title: chosen || 'No variable found',
+        margin: { l: 60, r: 20, t: 40, b: 140 },
+        xaxis: { automargin: true }
+      }, { displayModeBar: false });
+    </script>
+  </body>
+</html>
