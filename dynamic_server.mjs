@@ -78,17 +78,27 @@ app.get('/country/:country_id', (req, res) => {
             const prev = list[(idx - 1 + len) % len] || name;
             const next = list[(idx + 1) % len] || name;
 
-            db.all(sql, [req.params.country_id], (err, rows) => {
-                if (err){
-                    res.status(500).type('txt').send('SQL Error');
-                }
-                else{
+        db.all(sql, [req.params.country_id], (err, rows) => { //the question mark in sql gets replaced with G, sql recognizes it as a placeholder
+            if (err){
+                res.status(500).type('txt').send('SQL Error');
+            }
+            else{
+                const check = req.params.country_id;
+                if (!['China','France','Russian Federation', 'United Kingdom of Great Britain and Northern Ireland', 'United States of America'].includes(check)) { res.status(404).type('txt').send('Error: ' + check + 'is not a valid country'); return; }
                 //res.status(200).type('json').send(JSON.stringify(rows));
                 fs.readFile(path.join(template, 'country.html'), {encoding: 'utf8'}, (err, data) => {
                     //look at how indented we are
                     let country_data = '';
+                    let graph_array_data = [];
+                    let graph_array_year = [];
+                    let count = 0;
                     for (let i=0; i < rows.length; i++){
                         country_data += '<tr><td>' + rows[i].variable + '</td>';
+                        if(rows[i].variable == 'SDG 6.4.1. Water Use Efficiency'){
+                            graph_array_data[count] = [rows[i].value];
+                            graph_array_year[count] = [rows[i].year];
+                            count++;
+                        }
                         country_data += '<td>' + rows[i].value + '</td>';
                         country_data += '<td>' + rows[i].unit + '</td>';
                         country_data += '<td>' + rows[i].year + '</td></tr>';
@@ -100,9 +110,22 @@ app.get('/country/:country_id', (req, res) => {
                         <span class="pill variable-badge">${name}</span>
                         <a class="pill" href="/country/${encodeURIComponent(next)}">Next &#9654;</a>
                     </div>`;
+
+                    const graph = `
+                    <div id="tester" style="width:600px;height:250px;"></div>
+                        <script>
+	                        TESTER = document.getElementById('tester');
+	                        Plotly.newPlot( TESTER, [{
+	                        x: [${graph_array_year}],
+	                        y: [${graph_array_data}] }], {
+	                        margin: { t: 0 } } );
+                        </script>`
+
+                    console.log(graph_array_data);
                     let response = data.replace('$$$COUNTRY_ROWS$$$', country_data)
                         .replace(/\$\$\$COUNTRY_NAME\$\$\$/g, name)
-                        .replace('$$$COUNTRY_NAV$$$', nav);
+                        .replace('$$$COUNTRY_NAV$$$', nav)
+                        .replace('$$$GRAPH$$$', graph);
                     
                     res.status(200).type('html').send(response);
                 })
