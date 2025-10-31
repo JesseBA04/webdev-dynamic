@@ -6,11 +6,19 @@
         "name": "Jesse Berndt-Alonso",
         "email": "bern1203@stthomas.edu"
     },
-    "contributors": ["Sam Dewey, Alejandro Koenen" ],
-    "repository": {"type": "git", "url": "https://github.com/JesseBA04/webdev-dynamic"},
+    "contributors": [
+        "Sam Dewey, Alejandro Koenen"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/JesseBA04/webdev-dynamic"
+    },
     "dependencies": {
         "express": "^5.1.0",
-        "sqlite3": "^5.1.7"
-        
+        "fs": "^0.0.1-security",
+        "path": "^0.12.7",
+        "plotly": "^1.0.6",
+        "sqlite3": "^5.1.7",
+        "url": "^0.11.4"
     }
 }

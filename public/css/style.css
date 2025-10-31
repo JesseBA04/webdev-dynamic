@@ -162,3 +162,41 @@ table { width: 100%; max-width: 950px; }
     background: var(--accent-weak);
     border-color: var(--accent-weak);
 }
+
+/* Header with image layout */
+.header-with-image {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.type-icon {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+}
+
+.header-with-image h1 {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 2.5rem;
+}
+
+@media (max-width: 640px) {
+    .header-with-image {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+    
+    .type-icon {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .header-with-image h1 {
+        font-size: 1.8rem;
+    }
+}
