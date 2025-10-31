@@ -118,14 +118,7 @@ app.get('/country/:country_id', (req, res) => {
 	                        Plotly.newPlot( TESTER, [{
 	                        x: [${graph_array_year}],
 	                        y: [${graph_array_data}] }], {
-	                        margin: { t: 0 },
-                            {
-                                title: {
-                                text: Water Use Efficiency,
-                                y: .05,
-                                yanchor: 'bottom'
-                                }
-                            }  
+	                        margin: { t: 0 }
                             });
                         </script>`
 
