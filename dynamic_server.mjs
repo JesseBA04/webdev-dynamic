@@ -194,7 +194,7 @@ app.get('/display.html', (req, res) => {
 // Route: /variable/:name - show rows for a given variable (renders variable.html)
 app.get('/variable/:name', (req, res) => {
     const name = req.params.name;
-    const rowsSql = 'SELECT area, year, value FROM Data WHERE variable = ? ORDER BY area, year';
+    const rowsSql = 'SELECT area, year, value, unit FROM Data WHERE variable = ? ORDER BY area, year';
     const listSql = 'SELECT DISTINCT variable as v FROM Data WHERE variable IS NOT NULL ORDER BY variable';
 
     // First, get the full variable list to compute prev/next
@@ -213,7 +213,7 @@ app.get('/variable/:name', (req, res) => {
             fs.readFile(path.join(template, 'variable.html'), { encoding: 'utf8' }, (tplErr, data) => {
                 if (tplErr) return res.status(500).type('txt').send('Template read error');
 
-                const dataRows = rows.map(r => `                <tr><td>${r.area}</td><td>${r.year}</td><td>${r.value}</td></tr>`).join('\n');
+                const dataRows = rows.map(r => `                <tr><td>${r.area}</td><td>${r.year}</td><td>${r.value}</td><td>${r.unit}</td></tr>`).join('\n');
                 const nav = `
                 <div class="var-nav">
                     <a class="pill" href="/variable/${encodeURIComponent(prev)}">&#9664; Prev</a>

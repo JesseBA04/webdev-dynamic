@@ -43,6 +43,7 @@
 							<th>Area</th>
 							<th>Year</th>
 							<th>$$$VARIABLE$$$</th>
+							<th>Unit</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -57,6 +58,7 @@
 						const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
 						
 						const dataMap = {};
+						let unit = '';
 						
 						// Group data by area and get the latest value
 						for (let i = 0; i < rows.length; i++) {
@@ -64,6 +66,7 @@
 							const area = cells[0].textContent;
 							const year = parseInt(cells[1].textContent);
 							const value = parseFloat(cells[2].textContent);
+							unit = cells[3].textContent; // Get unit from any row
 							
 							if (!dataMap[area] || year > dataMap[area].year) {
 								dataMap[area] = { value: value, year: year };
@@ -83,7 +86,6 @@
 							'rgba(153, 102, 255, 0.7)',  // Purple
 						];
 						
-					
 						// Create the chart
 						const ctx = document.getElementById('myChart').getContext('2d');
 						const chart = new Chart(ctx, {
