@@ -121,7 +121,6 @@ app.get('/country/:country_id', (req, res) => {
 	                        margin: { t: 0 } } );
                         </script>`
 
-                    console.log(graph_array_data);
                     let response = data.replace('$$$COUNTRY_ROWS$$$', country_data)
                         .replace(/\$\$\$COUNTRY_NAME\$\$\$/g, name)
                         .replace('$$$COUNTRY_NAV$$$', nav)
