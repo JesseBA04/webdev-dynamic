@@ -137,6 +137,8 @@ app.get('/display.html', (req, res) => {
                 .replace('$$$TITLE$$$', 'Display')
                 .replace('$$$TITLE2$$$', 'Display')
                 .replace('$$$LIST$$$', list)
+                .replace('$$$IMAGE_PATH$$$', '/images/variable.png')
+                .replace('$$$IMGTITLE$$$', 'Display')
                 .replace('$$$EXTRA$$$', '');
             res.status(200).type('html').send(response);
         });
@@ -168,10 +170,20 @@ app.get('/display.html', (req, res) => {
                 // Capitalize first letter of type and make rest lowercase
                 const title = type.charAt(0).toUpperCase() + type.slice(1);
                 const extra = '';
+                
+                // Map type to actual image files
+                const imageMap = { 
+                    countries: '/images/country.jpg', 
+                    variables: '/images/variable.png', 
+                    years: '/images/year.png' 
+                };
+                const imagePath = imageMap[type] || '/images/variable.png';
 
                             let response = data
                                     .replace('$$$TITLE2$$$', title)
                                     .replace('$$$LIST$$$', list)
+                                    .replace('$$$IMAGE_PATH$$$', imagePath)
+                                    .replace('$$$IMGTITLE$$$', title)
                                     .replace('$$$EXTRA$$$', extra)
                                     .replace('$$$TITLE$$$', title);
             res.status(200).type('html').send(response);
